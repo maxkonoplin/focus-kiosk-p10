@@ -2,8 +2,8 @@
   "frame": false,
   "fullscreen": true,
   "resizable": false,
-  "title": "Focus Kiosk - Focus Touch",
   "icon": "public/appicon.png",
+  "alwaysOnTop": true,
   "webPreferences": {
     "devTools": true,
     "webSecurity": false,

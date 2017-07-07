@@ -1,25 +1,33 @@
 {
-  "name": "focus-kiosk-p10",
-  "version": "1.0.0",
+  "name": "Hotel App",
+  "version": "1.0.6",
   "description": "Kiosk application for hotels",
   "main": "index.js",
   "author": "Max Konoplin",
   "scripts": {
     "start": "./node_modules/.bin/electron .",
-    "release": "./node_modules/.bin/build --win --publish always"
+    "pack": "./node_modules/.bin/build --dir",
+    "build": "./node_modules/.bin/build --win",
+    "publish": "./node_modules/.bin/build --win --publish always"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/someone-unknown/focus-kiosk-p10.git"
   },
+  "build": {
+    "asar": true,
+    "publish": {
+      "provider": "github",
+      "token": "3dd15e2321629db86752e9f601dd26f2810d746e"
+    }
+  },
   "dependencies": {
     "mustache": "^2.3.0",
-    "node-wifi": "^1.2.4"
+    "node-wifi": "^1.2.4",
+    "electron-updater": "^2.4.4"
   },
   "devDependencies": {
     "electron": "^1.6.8",
-    "electron-builder": "^19.13.0",
-    "electron-publisher-s3": "^19.12.0",
-    "electron-updater": "^2.4.4"
+    "electron-builder": "^19.13.0"
   }
 }

@@ -2,6 +2,7 @@ const events = require('events');
 const electron = require('electron');
 const app = electron.app;
 const globalShortcut = electron.globalShortcut;
+const autoUpdater = require('electron-updater').autoUpdater;
 const Window = require('./window');
 
 function App(){
@@ -9,10 +10,14 @@ function App(){
     var self = this;
     events.EventEmitter.call(self);
     self._app = app;
+    self._updater = autoUpdater;
     self.stdin = process.stdin;
     self.stdout = process.stdout;
     self.stderr = process.stderr;
+
+    /** ---[ App listeners ]--- **/
     self._app.once('ready', function(){
+        self._updater.checkForUpdates();
         self.emit('ready');
     });
     self._app.on('window-all-closed', function(){
@@ -20,12 +25,36 @@ function App(){
             self.quit();
         }
     });
+
+    /** ---[ Process listeners ]--- **/
     process.on('uncaughtException', function(err){
         self.emit('error', err);
     });
     process.on('SIGINT', function(){
         self.quit();
     });
+
+    /** ---[ Updater listeners ]--- **/
+    self._updater.on('update-not-available', function(){
+        setTimeout(function(){
+            self._updater.checkForUpdates();
+        }, 60000);
+    });
+    self._updater.on('update-available', function(){
+        self.emit('update-available');
+    });
+    self._updater.on('download-progress', function(progress){
+        self.emit('update-download-progress', progress);
+    });
+    self._updater.on('update-downloaded', function(){
+        self.emit('update-downloaded');
+    });
+    self._updater.on('error', function(){
+        setTimeout(function(){
+            self._updater.checkForUpdates();
+        }, 60000);
+    });
+
     return self;
 }
 
@@ -88,6 +117,11 @@ App.prototype.registerShortcut = function(shortcut, callback){
             globalShortcut.register(shortcut, callback);
         });
     }
+    return this;
+};
+
+App.prototype.quitAndInstall = function(){
+    this._updater.quitAndInstall();
     return this;
 };
 

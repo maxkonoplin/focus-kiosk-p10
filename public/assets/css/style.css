@@ -21,6 +21,7 @@ html{
     padding: 0;
     box-sizing: border-box;
     height: 1920px;
+    cursor: none !important;
 }
 body{
     margin: 0;
@@ -931,7 +932,6 @@ button.ui-keyboard-button.btn {
     margin: 5px;
     color: #FFF;
     text-align: center;
-    cursor: pointer;
 }
 #sync2 .item h1 {
     font-size: 18px;
