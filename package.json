@@ -1,6 +1,6 @@
 {
-  "name": "Hotel App",
-  "version": "1.0.6",
+  "name": "focus-kiosk-p10",
+  "version": "1.1.0",
   "description": "Kiosk application for hotels",
   "main": "index.js",
   "author": "Max Konoplin",
@@ -15,10 +15,14 @@
     "url": "https://github.com/someone-unknown/focus-kiosk-p10.git"
   },
   "build": {
+    "productName": "Hotel App",
     "asar": true,
     "publish": {
       "provider": "github",
-      "token": "3dd15e2321629db86752e9f601dd26f2810d746e"
+      "token": ""
+    },
+    "win": {
+      "icon": "./public/favicon.ico"
     }
   },
   "dependencies": {
