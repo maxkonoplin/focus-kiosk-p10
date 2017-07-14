@@ -1,0 +1,55 @@
+<div class="gallery-details">
+    <div class="gradient-block-title">
+        <div class="page-title">Frühstück</div>
+    </div>
+    <div class="gradient-bottom"></div>
+
+    <div id="sync1" class="owl-carousel owl-theme">
+        {{#album}}
+        <div class="item" style="background-image: url('{{image}}');"></div>
+        {{/album}}
+    </div>
+
+    <div id="sync2" class="thumbs-carousel owl-carousel owl-theme">
+        {{#album}}
+        <div class="item">
+            <div class="gallery-thumb" style="background-image: url('{{thumb}}');"></div>
+        </div>
+        {{/album}}
+    </div>
+</div>
+
+<div class="page-template">
+    <div class="bottom-room">
+        <!--<div class="room-title">Zimmer für die Traum-Reise ab 79,- €</div>-->
+        <!--<div class="room-subtitle">Direkt Bucher Vorteil</div>-->
+        <!--<div class="room-description">-->
+            <!--<ul>-->
+                <!--<li>Tages Gin Tonic im Stollen 1930 gratis</li>-->
+                <!--<li>Keine Anzahlung + stornierbar bis 2 Tage vor Anreise</li>-->
+                <!--<li>Gratis Parkplatz</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="fixed-bottom-contact">
+    Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
+</div>
+
+<a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
+
+<div class="right-menu">
+    <a href="hotel/rooms" class="menu-item">
+        <img src="assets/images/ico_rooms.png" alt="Zimmer"/>
+        <span>Zimmer</span>
+    </a>
+    <a href="hotel/offers" class="menu-item">
+        <img src="assets/images/ico_offers.png" alt="Angebote"/>
+        <span>Angebote</span>
+    </a>
+    <a class="menu-item active-menu">
+        <img src="assets/images/ico_dining.png" alt="Frühstück"/>
+        <span>Frühstück</span>
+    </a>
+</div>

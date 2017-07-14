@@ -1,0 +1,25 @@
+<div class="lock-screen">
+    <ul class="background-slide owl-carousel">
+        {{#gallery}}
+        <li class="slide-item" style="background-image: url('{{image}}');"></li>
+        {{/gallery}}
+    </ul>
+
+    <div class="bg-footer">
+        <div class="footer-wrapper">
+            <div class="first-cirle"></div>
+            <div class="second-cirle"></div>
+            <a href="terminal/home" class="unlock-button">
+                <img src="assets/images/cat-logo.png" alt="logo"/>
+                Touch me
+            </a>
+
+            <div class="footer-text">
+                <div class="top-footer">{{hotel.name}}</div>
+                Wine house | Boutique Hotel | Gin Bar | Steak House | Bistro
+            </div>
+        </div>
+
+        <a href="settings/scan" class="settings-btn lal js__p_start"><img src="assets/images/ico-settings.png" alt="settings"/></a>
+    </div>
+</div>

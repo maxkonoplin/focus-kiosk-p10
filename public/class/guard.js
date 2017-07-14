@@ -1,23 +1,53 @@
 const crypto = require('crypto');
 
-function Guard(key){
-    if(!(this instanceof Guard)) return new Guard(key);
+class Guard {
 
-    this.key = key;
-    this.data = localStorage.getItem('guard:' + key);
-    return this;
+    constructor(app){
+        this._app = app;
+        this._storage = window.localStorage;
+    }
+
+    installed(){
+        return new Promise((resolve, reject) => {
+            try {
+                let password = this._storage.getItem('guard-hash');
+                if(password == null) return reject();
+                return resolve();
+            }
+            catch(err){
+                return reject(err);
+            }
+        });
+    }
+
+    store(password){
+        return new Promise((resolve, reject) => {
+            try {
+                if(typeof password != 'string') return reject(new Error('Password must be a string'));
+                if(!password.length) return reject(new Error('Password cannot be an empty string'));
+                this._storage.setItem('guard-hash', crypto.createHash('sha256').update(password).digest('base64'));
+                return resolve();
+            }
+            catch(err){
+                return reject(err);
+            }
+        });
+    }
+
+    check(password){
+        return new Promise((resolve, reject) => {
+            try {
+                if(this._storage.getItem('guard-hash') != crypto.createHash('sha256').update(password).digest('base64')){
+                    return reject();
+                }
+                return resolve();
+            }
+            catch(err){
+                return reject(err);
+            }
+        });
+    }
+
 }
-
-Guard.prototype = Object.create(null);
-Guard.prototype.constructor = Guard;
-
-Guard.prototype.set = function(value){
-    this.data = crypto.createHash('sha256').update(value).digest('base64');
-    localStorage.setItem(this.key, this.data);
-};
-
-Guard.prototype.check = function(value){
-    return this.data == crypto.createHash('sha256').update(value).digest('base64');
-};
 
 module.exports = Guard;

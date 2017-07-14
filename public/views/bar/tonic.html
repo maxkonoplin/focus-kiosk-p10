@@ -1,0 +1,48 @@
+<div class="page-template">
+    <div class="fixed-header">
+        <div class="page-title">Tonic</div>
+    </div>
+    <div class="header-space"></div>
+
+    <div class="hotel-menu-items">
+        {{#items}}
+        <div class="hotel-menu-item" style="background-image: url('{{image}}');">
+            <div class="menu-detail-text">
+                <div class="menu-price">{{price}}{{currency}}</div>
+                <div class="menu-detail-title">{{title}}</div>
+                <div class="menu-details-sub-title">{{subtitle}}</div>
+                <div class="menu-detail-content">{{{description}}}</div>
+            </div>
+        </div>
+        {{/items}}
+        <div class="clear"></div>
+    </div>
+
+    <div class="fixed-bottom-contact">
+        Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
+    </div>
+
+</div>
+
+<a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
+
+<div class="right-menu menu-no-icons">
+    <a href="bar/gallery" class="menu-item">
+        <span>Bar-Stollen 1930</span>
+    </a>
+    <a href="bar/guinness" class="menu-item">
+        <span>Guinness Book</span>
+    </a>
+    <a href="bar/gin" class="menu-item">
+        <span>Gin</span>
+    </a>
+    <a class="menu-item active-menu">
+        <span>Tonic</span>
+    </a>
+    <a href="bar/cocktails" class="menu-item">
+        <span>Cocktails</span>
+    </a>
+    <a href="bar/tagesem" class="menu-item">
+        <span>Tagesem pfehlungen</span>
+    </a>
+</div>

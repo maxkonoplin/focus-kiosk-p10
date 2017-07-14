@@ -2,7 +2,6 @@
   "frame": false,
   "fullscreen": true,
   "resizable": false,
-  "icon": "public/appicon.png",
   "alwaysOnTop": true,
   "webPreferences": {
     "devTools": true,
