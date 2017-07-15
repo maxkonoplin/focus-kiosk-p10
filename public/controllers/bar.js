@@ -4,26 +4,21 @@ class Bar extends Controller {
 
     gallery(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2/albums'
-            })
+            this.setProgress(0);
+            this.get('/album/3')
                 .then((album) => {
-                    console.log(album);
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/gallery', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this._app.page.loading(90);
+                    this.setProgress(90);
                     gallery.on('initialized.owl.carousel', () => {
-                        setTimeout(() => {
-                            this._app.page.loaded();
-                            return resolve();
-                        }, 500);
+                        this.end()
+                            .then(resolve)
+                            .catch(reject);
                     })
                         .owlCarousel({
                             center: true,
@@ -66,111 +61,86 @@ class Bar extends Controller {
 
     guinness(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/page/10'
-            })
+            this.setProgress(0);
+            this.get('/page/10')
                 .then((page) => {
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/guinness', {page});
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     gin(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/5'
-            })
+            this.setProgress(0);
+            this.get('/categories/5')
                 .then((categories) => {
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/gin', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     tonic(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/4'
-            })
+            this.setProgress(0);
+            this.get('/categories/4')
                 .then((categories) => {
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/tonic', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     cocktails(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/22'
-            })
+            this.setProgress(0);
+            this.get('/categories/22')
                 .then((categories) => {
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/cocktails', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     tagesem(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2'
-            })
+            this.setProgress(0);
+            this.get('/hotel/2')
                 .then(() => {
                     console.log();
-                    this._app.page.loading(45);
+                    this.setProgress(45);
                     return this.render('bar/tagesem');
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }

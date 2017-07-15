@@ -1,21 +1,19 @@
 <div class="page-template">
-    <div class="fixed-header">
-        <div class="page-title">Cocktails</div>
-    </div>
-    <div class="header-space"></div>
+    <div class="bar-categories">
+        <div class="drink-category">Cocktails</div>
 
-    <div class="hotel-menu-items">
-        {{#items}}
-        <div class="hotel-menu-item" style="background-image: url('{{image}}');">
-            <div class="menu-detail-text">
-                <div class="menu-price">{{price}}{{currency}}</div>
-                <div class="menu-detail-title">{{title}}</div>
-                <div class="menu-details-sub-title">{{subtitle}}</div>
-                <div class="menu-detail-content">{{{description}}}</div>
+        <div class="bar-items">
+            {{#items}}
+            <div class="bar-item">
+                <div class="bar-item-title">
+                    {{title}}
+                    <div class="bar-item-price">{{price}}{{currency}}</div>
+                </div>
+                <div class="bar-item-subtitle">{{subtitle}}</div>
+                <div class="bar-item-description">{{{description}}}</div>
             </div>
+            {{/items}}
         </div>
-        {{/items}}
-        <div class="clear"></div>
     </div>
 
     <div class="fixed-bottom-contact">

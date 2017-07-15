@@ -2,27 +2,23 @@ const Controller = require('../class/controller');
 
 class Bistro extends Controller {
 
-    index(){
+    gallery(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/album/6'
-            })
+            this.setProgress(0);
+            this.get('/album/6')
                 .then((album) => {
-                    this._app.page.loading(45);
-                    return this.render('bistro', {album});
+                    this.setProgress(45);
+                    return this.render('bistro/gallery', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this._app.page.loading(90);
+                    this.setProgress(90);
                     gallery.on('initialized.owl.carousel', () => {
-                        setTimeout(() => {
-                            this._app.page.loaded();
-                            return resolve();
-                        }, 500);
+                        this.end()
+                            .then(resolve)
+                            .catch(reject);
                     })
                         .owlCarousel({
                             center: true,
@@ -65,66 +61,51 @@ class Bistro extends Controller {
 
     shake(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/24'
-            })
+            this.setProgress(0);
+            this.get('/categories/24')
                 .then((categories) => {
-                    this._app.page.loading(45);
-                    return this.render('shake', categories[0]);
+                    this.setProgress(45);
+                    return this.render('bistro/shake', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     steaks(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/17'
-            })
+            this.setProgress(0);
+            this.get('/categories/17')
                 .then((categories) => {
-                    this._app.page.loading(45);
-                    return this.render('steaks', categories[0]);
+                    this.setProgress(45);
+                    return this.render('bistro/steaks', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     kuche(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/categories/19'
-            })
+            this.setProgress(0);
+            this.get('/categories/19')
                 .then((categories) => {
-                    this._app.page.loading(45);
-                    return this.render('kuche', categories[0]);
+                    this.setProgress(45);
+                    return this.render('bistro/kuche', categories[0]);
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.setProgress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }

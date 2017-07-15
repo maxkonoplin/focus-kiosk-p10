@@ -1,0 +1,45 @@
+<div class="page-template weekly-menu">
+    <div class="fixed-header">
+        <div class="page-title">
+            <img src="assets/images/cat-logo.png" alt="Logo"/>
+            Wochenkarte
+        </div>
+    </div>
+    <div class="header-space"></div>
+
+    <div class="hotel-menu-items">
+        {{#items}}
+        <div class="weekly-menu-item">
+            <div class="weekly-menu-price">{{price}}{{currency}}</div>
+            <div class="weekly-menu-name">{{title}}</div>
+            <div class="weekly-menu-name-description">{{{description}}}</div>
+        </div>
+        {{/items}}
+        <div class="clear"></div>
+    </div>
+
+    <div class="fixed-bottom-contact">
+        Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
+    </div>
+
+</div>
+
+<a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
+
+<div class="right-menu menu-no-icons">
+    <a href="restaurant/gallery" class="menu-item">
+        <span>Auracher Löchl</span>
+    </a>
+    <a href="restaurant/kuche" class="menu-item">
+        <span>Tiroler Küche</span>
+    </a>
+    <a href="restaurant/steaks" class="menu-item">
+        <span>Steaks</span>
+    </a>
+    <a href="restaurant/naschkatzen" class="menu-item">
+        <span>Naschkatzen</span>
+    </a>
+    <a class="menu-item active-menu">
+        <span>Wochenkarte</span>
+    </a>
+</div>
