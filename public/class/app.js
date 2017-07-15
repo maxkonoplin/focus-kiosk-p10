@@ -1,4 +1,5 @@
 const API = require('./api');
+const Error = require('./error');
 const Guard = require('./guard');
 const Localization = require('./localization');
 const Network = require('./network');
@@ -9,6 +10,7 @@ class App {
 
     constructor(){
         this.api = new API(this);
+        this.error = new Error(this);
         this.guard = new Guard(this);
         this.localization = new Localization(this);
         this.network = new Network(this);

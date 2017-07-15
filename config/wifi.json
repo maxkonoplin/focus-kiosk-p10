@@ -1,5 +1,0 @@
-{
-  "debug": false,
-  "iface": "wlan0",
-  "connectionTimeout": 10000
-}

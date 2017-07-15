@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     app.api.authenticate()
         .then(function(){
-            return app.router.dispatch('terminal/lock');
+            return app.router.dispatch('main/lock');
         })
         .then(function(){
             console.log('Application initialized');
@@ -17,7 +17,7 @@ $(document).ready(function(){
         });
 
     app.page.on('sleep', function(){
-        app.router.dispatch('terminal/lock');
+        app.router.dispatch('main/lock');
     });
 
 });

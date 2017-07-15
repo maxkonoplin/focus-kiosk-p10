@@ -1,13 +1,16 @@
 const dns = require('dns');
 const wifi = require('node-wifi');
-const config = require('../../config/wifi.json');
 
 class Network {
 
     constructor(app){
         this._app = app;
         this._wifi = wifi;
-        this._wifi.init(config);
+        this._wifi.init({
+            debug: false,
+            iface: 'wlan0',
+            connectionTimeout: 10000
+        });
     }
 
     ping(){

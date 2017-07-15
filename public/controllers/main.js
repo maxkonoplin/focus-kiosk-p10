@@ -1,26 +1,14 @@
 const Controller = require('../class/controller');
 
-class Terminal extends Controller {
+class Main extends Controller {
 
     lock(){
         return new Promise((resolve, reject) => {
-            let hotel = null;
-            let gallery = null;
-
             this.progress(0);
-            this.get('/hotel/2')
-                .then((response) => {
-                    hotel = response;
-                    this.progress(30);
-                    return this.get('/hotel/2/gallery');
-                })
-                .then((response) => {
-                    gallery = response;
-                    this.progress(60);
-                    return this.render('lock', {
-                        hotel: hotel,
-                        gallery: gallery
-                    });
+            this.get('/hotel/2/gallery')
+                .then((gallery) => {
+                    this.progress(45);
+                    return this.render('main/lock', {gallery});
                 })
                 .then(() => {
                     let gallery = $('.background-slide.owl-carousel');
@@ -50,7 +38,7 @@ class Terminal extends Controller {
     home(){
         return new Promise((resolve, reject) => {
             this.progress(0);
-            this.render('home')
+            this.render('main/home')
                 .then(() => {
                     this.progress(90);
                     return this.end();
@@ -62,4 +50,4 @@ class Terminal extends Controller {
 
 }
 
-module.exports = Terminal;
+module.exports = Main;

@@ -7,7 +7,8 @@ class Router {
             e.preventDefault();
             let route = $(this).attr('href');
             let data = $(this).data();
-            context.dispatch(route, data);
+            context.dispatch(route, data)
+                .catch((err) => context._app.error.report(err));
         });
     }
 

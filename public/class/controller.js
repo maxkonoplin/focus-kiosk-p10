@@ -2,6 +2,7 @@ class Controller {
 
     constructor(app){
         this._app = app;
+        this.locale = this._app.localization._locale;
     }
 
     progress(progress){
