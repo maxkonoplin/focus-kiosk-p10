@@ -5,8 +5,8 @@ class API {
 
     constructor(app){
         this._app = app;
-        this.base = 'http://api.alpenpad.com/v2';
-        this.headers = new Headers({
+        this._base = 'http://api.alpenpad.com/v2';
+        this._headers = new Headers({
             'Accept': 'application/json'
         });
     }
@@ -15,10 +15,10 @@ class API {
         return new Promise((resolve, reject) => {
             try {
                 options = Object.assign({}, options);
-                fetch(this.base + options.route, {
+                fetch(this._base + options.route, {
                     method: options.method || 'GET',
                     mode: 'cors',
-                    headers: this.headers,
+                    headers: this._headers,
                     body: options.body
                 })
                     .then((response) => {
@@ -57,7 +57,7 @@ class API {
                         return response.json();
                     })
                     .then((data) => {
-                        this.headers.set('Authorization', data.token_type + ' ' + data.access_token);
+                        this._headers.set('Authorization', data.token_type + ' ' + data.access_token);
                         return resolve();
                     })
                     .catch(reject);

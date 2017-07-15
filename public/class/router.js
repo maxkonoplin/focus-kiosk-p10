@@ -7,8 +7,7 @@ class Router {
             e.preventDefault();
             let route = $(this).attr('href');
             let data = $(this).data();
-            context.dispatch(route, data)
-                .catch((err) => context._app.error.report(err));
+            context.dispatch(route, data);
         });
     }
 
@@ -24,7 +23,11 @@ class Router {
             catch(err){
                 return reject(err);
             }
-        });
+        })
+            .catch((err) => {
+                this._app.error.report(err);
+                throw err;
+            });
     }
 
 }

@@ -30,30 +30,24 @@ class Bistro extends Controller {
                             mouseDrag: true,
                             autoplay: true,
                             dots: true,
-                            loop: true,
                             responsiveRefreshRate: 200
                         })
-                        .on('changed.owl.carousel', (e) => thumbs.data('owl.carousel').to(e.item.index, 300, true));
-
-                    thumbs.on('initialized.owl.carousel', () => thumbs.find('.owl-item').removeClass('current').eq(0).addClass('current'))
-                        .owlCarousel({
-                            items : 5,
-                            dots: true,
-                            nav: false,
-                            mouseDrag: true,
-                            smartSpeed: 200,
-                            slideSpeed : 500,
-                            responsiveRefreshRate : 100
-                        })
                         .on('changed.owl.carousel', (e) => {
-                            gallery.data('owl.carousel').to(e.item.index, 100, true);
+                            thumbs.trigger('to.owl.carousel', [e.item.index,300,true]);
                             thumbs.find('.owl-item').removeClass('current').eq(e.item.index).addClass('current');
                         });
 
-                    thumbs.on('click', '.owl-item', function(e){
-                        e.preventDefault();
-                        gallery.data('owl.carousel').to($(this).index(), 300, true);
-                    });
+                    thumbs.on('initialized.owl.carousel', () => {
+                        thumbs.find('.owl-item').removeClass('current').eq(0).addClass('current');
+                    })
+                        .on('click', '.owl-item', function(e){
+                            e.preventDefault();
+                            gallery.trigger('to.owl.carousel', [$(this).index(), 300, true]);
+                        })
+                        .owlCarousel({
+                            items: 5,
+                            responsiveRefreshRate: 100
+                        });
                 })
                 .catch(reject);
         });

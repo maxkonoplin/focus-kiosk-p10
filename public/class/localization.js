@@ -9,7 +9,7 @@ class Localization {
             this._locale = this._default;
             window.localStorage.setItem('localization', this._locale);
         }
-        this._app.api.headers.set('Content-Language', this._locale);
+        this._app.api._headers.set('Content-Language', this._locale);
     }
 
     change(locale){
@@ -18,7 +18,7 @@ class Localization {
                 if(!~this._supported.indexOf(locale)) return reject(new Error(`Locale "${locale}" is not supported`));
                 window.localStorage.setItem('localization', locale);
                 this._locale = locale;
-                this._app.api.headers.set('Content-Language', this._locale);
+                this._app.api._headers.set('Content-Language', this._locale);
                 return resolve();
             }
             catch(err){
