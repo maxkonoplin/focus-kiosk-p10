@@ -4,25 +4,21 @@ class Hotel extends Controller {
 
     rooms(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/album/4'
-            })
+            this.progress(0);
+            this.get('/album/4')
                 .then((album) => {
-                    this._app.page.loading(45);
-                    return this.render('rooms', {album});
+                    this.progress(45);
+                    return this.render('hotel/rooms', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this._app.page.loading(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
-                        setTimeout(() => {
-                            this._app.page.loaded();
-                            return resolve();
-                        }, 500);
+                        this.end()
+                            .then(resolve)
+                            .catch(reject);
                     })
                         .owlCarousel({
                             center: true,
@@ -65,25 +61,21 @@ class Hotel extends Controller {
 
     fruhstuck(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/album/5'
-            })
+            this.progress(0);
+            this.get('/album/5')
                 .then((album) => {
-                    this._app.page.loading(45);
-                    return this.render('fruhstuck', {album});
+                    this.progress(45);
+                    return this.render('hotel/fruhstuck', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this._app.page.loading(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
-                        setTimeout(() => {
-                            this._app.page.loaded();
-                            return resolve();
-                        }, 500);
+                        this.end()
+                            .then(resolve)
+                            .catch(reject);
                     })
                         .owlCarousel({
                             center: true,
@@ -130,65 +122,52 @@ class Hotel extends Controller {
 
     offers(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2/offers'
-            })
+            this.progress(0);
+            this.get('/hotel/2/offers')
                 .then((offers) => {
-                console.log(offers);
-                    this._app.page.loading(45);
-                    return this.render('offers', {offers});
+                    console.log(offers);
+                    this.progress(45);
+                    return this.render('hotel/offers', {offers});
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.progress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     team(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2/teams'
-            })
+            this.progress(0);
+            this.get('/hotel/2/teams')
                 .then((team) => {
-                    this._app.page.loading(45);
-                    return this.render('team', {team});
+                    this.progress(45);
+                    return this.render('hotel/team', {team});
                 })
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.progress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }
 
     vip(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/page/11'
-            })
+            this.progress(0);
+            this.get('/page/11')
                 .then((page) => {
-                console.log(page);
-                    this._app.page.loading(50);
-                    return this.render('4vip', {page});
+                    this.progress(50);
+                    return this.render('hotel/4vip', {page});
                 })
                 .then(() => {
-                    this._app.page.loaded();
-                    return resolve();
+                    this.progress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }

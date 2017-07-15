@@ -4,17 +4,17 @@ class Bar extends Controller {
 
     gallery(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/album/3')
                 .then((album) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/gallery', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this.setProgress(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
                         this.end()
                             .then(resolve)
@@ -61,14 +61,14 @@ class Bar extends Controller {
 
     guinness(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/page/10')
                 .then((page) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/guinness', {page});
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -78,14 +78,14 @@ class Bar extends Controller {
 
     gin(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/5')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/gin', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -95,14 +95,14 @@ class Bar extends Controller {
 
     tonic(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/4')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/tonic', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -112,14 +112,14 @@ class Bar extends Controller {
 
     cocktails(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/22')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/cocktails', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -129,15 +129,15 @@ class Bar extends Controller {
 
     tagesem(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/hotel/2')
                 .then(() => {
                     console.log();
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bar/tagesem');
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)

@@ -1,8 +1,8 @@
 <div class="lock-screen">
     <ul class="background-slide owl-carousel">
-        {{#gallery}}
+        {{#data.gallery}}
         <li class="slide-item" style="background-image: url('{{image}}');"></li>
-        {{/gallery}}
+        {{/data.gallery}}
     </ul>
 
     <div class="bg-footer">
@@ -11,11 +11,11 @@
             <div class="second-cirle"></div>
             <a href="terminal/home" class="unlock-button">
                 <img src="assets/images/cat-logo.png" alt="logo"/>
-                Touch me
+                {{langpack.touch}}
             </a>
 
             <div class="footer-text">
-                <div class="top-footer">{{hotel.name}}</div>
+                <div class="top-footer">{{data.hotel.name}}</div>
                 Wine house | Boutique Hotel | Gin Bar | Steak House | Bistro
             </div>
         </div>

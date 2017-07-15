@@ -1,32 +1,30 @@
 <div class="page-template histoty-template">
 
-    <div class="history-title">{{page.title}}</div>
-    <div class="history-subtitle">{{page.subtitle}}</div>
+    <div class="history-title">{{data.page.title}}</div>
+    <div class="history-subtitle">{{data.page.subtitle}}</div>
 
     <div class="history-content">
-        <img src="{{page.image}}" alt="Stollen Background"/>
-        <div class="history-main-text">{{{page.description}}}</div>
+        <img src="{{data.page.image}}" alt="Stollen Background"/>
+        <div class="history-main-text">{{{data.page.description}}}</div>
     </div>
 
 </div>
 
-<div class="fixed-bottom-contact">
-    Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
-</div>
+<div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 
 <a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
 
 <div class="right-menu menu-no-icons">
     <a href="history/auracher" class="menu-item">
-        <span>Auracher Löchl</span>
+        <span>{{langpack.auracher}}</span>
     </a>
     <a class="menu-item active-menu">
-        <span>Stollen 1930</span>
+        <span>{{langpack.stollen}}</span>
     </a>
     <a href="history/traumerei" class="menu-item">
-        <span>Träumerei #8</span>
+        <span>{{langpack.traumerei}}</span>
     </a>
     <a href="history/katze" class="menu-item">
-        <span>Schwarze Katze</span>
+        <span>{{langpack.katze}}</span>
     </a>
 </div>

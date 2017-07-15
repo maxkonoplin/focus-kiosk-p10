@@ -1,9 +1,9 @@
 <div class="page-template">
     <div class="bar-categories">
-        <div class="drink-category">Tonic</div>
+        <div class="drink-category">{{langpack.tonic}}</div>
 
         <div class="bar-items">
-            {{#items}}
+            {{#data.items}}
             <div class="bar-item">
                 <div class="bar-item-title">
                     {{title}}
@@ -12,13 +12,11 @@
                 <div class="bar-item-subtitle">{{subtitle}}</div>
                 <div class="bar-item-description">{{{description}}}</div>
             </div>
-            {{/items}}
+            {{/data.items}}
         </div>
     </div>
 
-    <div class="fixed-bottom-contact">
-        Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
-    </div>
+    <div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 
 </div>
 
@@ -26,21 +24,21 @@
 
 <div class="right-menu menu-no-icons">
     <a href="bar/gallery" class="menu-item">
-        <span>Bar-Stollen 1930</span>
+        <span>{{langpack.bar}}</span>
     </a>
     <a href="bar/guinness" class="menu-item">
-        <span>Guinness Book</span>
+        <span>{{langpack.guinness}}</span>
     </a>
     <a href="bar/gin" class="menu-item">
-        <span>Gin</span>
+        <span>{{langpack.gin}}</span>
     </a>
     <a class="menu-item active-menu">
-        <span>Tonic</span>
+        <span>{{langpack.tonic}}</span>
     </a>
     <a href="bar/cocktails" class="menu-item">
-        <span>Cocktails</span>
+        <span>{{langpack.cocktails}}</span>
     </a>
     <a href="bar/tagesem" class="menu-item">
-        <span>Tagesem pfehlungen</span>
+        <span>{{langpack.tagesem}}</span>
     </a>
 </div>

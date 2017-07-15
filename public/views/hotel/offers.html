@@ -1,8 +1,8 @@
 <div class="page-template">
-    <div class="page-title">Angebote</div>
+    <div class="page-title">{{langpack.offers}}</div>
     <div class="offers-block">
 
-        {{#offers}}
+        {{#data.offers}}
         <div class="list-item">
             <div class="image-list" style="background-image: url('assets/images/backend-images/image_8.png');">
                 <div class="corner"></div>
@@ -12,32 +12,30 @@
                 <div class="list-description">
                     Agosto ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam.
-                    <a href="offer-details.html">read more</a>
+                    <a href="../offer-details.html">read more</a>
                 </div>
             </div>
             <div class="clear"></div>
         </div>
-        {{/offers}}
+        {{/data.offers}}
         <div class="clear"></div>
     </div>
-    <div class="fixed-bottom-contact">
-        Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
-    </div>
+    <div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 </div>
 
 <a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
 
 <div class="right-menu">
     <a href="hotel/rooms" class="menu-item">
-        <img src="assets/images/ico_rooms.png" alt="Zimmer"/>
-        <span>Zimmer</span>
+        <img src="assets/images/ico_rooms.png" alt="{{langpack.rooms}}"/>
+        <span>{{langpack.rooms}}</span>
     </a>
     <a class="menu-item active-menu">
-        <img src="assets/images/ico_offers.png" alt="Angebote"/>
-        <span>Angebote</span>
+        <img src="assets/images/ico_offers.png" alt="{{langpack.offers}}"/>
+        <span>{{langpack.offers}}</span>
     </a>
     <a href="hotel/fruhstuck" class="menu-item">
-        <img src="assets/images/ico_dining.png" alt="Frühstück"/>
-        <span>Frühstück</span>
+        <img src="assets/images/ico_dining.png" alt="{{langpack.fruhstuck}}"/>
+        <span>{{langpack.fruhstuck}}</span>
     </a>
 </div>

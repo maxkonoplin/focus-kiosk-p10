@@ -1,47 +1,45 @@
 <div class="gallery-details fullscreen-details">
     <div class="gradient-block-title">
-        <div class="page-title">Bar-Stollen 1930</div>
+        <div class="page-title">{{langpack.bar}}</div>
     </div>
     <div class="gradient-bottom"></div>
 
     <div id="sync1" class="owl-carousel owl-theme">
-        {{#album}}
+        {{#data.album}}
         <div class="item" style="background-image: url('{{image}}');"></div>
-        {{/album}}
+        {{/data.album}}
     </div>
 
     <div id="sync2" class="thumbs-carousel owl-carousel owl-theme">
-        {{#album}}
+        {{#data.album}}
         <div class="item">
             <div class="gallery-thumb" style="background-image: url('{{thumb}}');"></div>
         </div>
-        {{/album}}
+        {{/data.album}}
     </div>
 </div>
 
-<div class="fixed-bottom-contact">
-    Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
-</div>
+<div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 
 <a href="terminal/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>
 
 <div class="right-menu menu-no-icons">
     <a class="menu-item active-menu">
-        <span>Bar-Stollen 1930</span>
+        <span>{{langpack.bar}}</span>
     </a>
     <a href="bar/guinness" class="menu-item">
-        <span>Guinness Book</span>
+        <span>{{langpack.guinness}}</span>
     </a>
     <a href="bar/gin" class="menu-item">
-        <span>Gin</span>
+        <span>{{langpack.gin}}</span>
     </a>
     <a href="bar/tonic" class="menu-item">
-        <span>Tonic</span>
+        <span>{{langpack.tonic}}</span>
     </a>
     <a href="bar/cocktails" class="menu-item">
-        <span>Cocktails</span>
+        <span>{{langpack.cocktails}}</span>
     </a>
     <a href="bar/tagesem" class="menu-item">
-        <span>Tagesem pfehlungen</span>
+        <span>{{langpack.tagesem}}</span>
     </a>
 </div>

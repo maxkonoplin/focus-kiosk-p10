@@ -4,17 +4,17 @@ class Restaurant extends Controller {
 
     gallery(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/album/1')
                 .then((album) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('restaurant/gallery', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this.setProgress(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
                         this.end()
                             .then(resolve)
@@ -61,14 +61,14 @@ class Restaurant extends Controller {
 
     kuche(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/19')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('restaurant/kuche', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -78,14 +78,14 @@ class Restaurant extends Controller {
 
     steaks(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/17')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('restaurant/steaks', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -95,14 +95,14 @@ class Restaurant extends Controller {
 
     naschkatzen(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/21')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('restaurant/naschkatzen', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -112,15 +112,14 @@ class Restaurant extends Controller {
 
     wochenkarte(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/25')
                 .then((categories) => {
-                    console.log(categories);
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('restaurant/wochenkarte', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)

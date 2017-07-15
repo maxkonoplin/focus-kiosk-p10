@@ -4,17 +4,17 @@ class Bistro extends Controller {
 
     gallery(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/album/6')
                 .then((album) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bistro/gallery', {album});
                 })
                 .then(() => {
                     let gallery = $("#sync1");
                     let thumbs = $("#sync2");
 
-                    this.setProgress(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
                         this.end()
                             .then(resolve)
@@ -61,14 +61,14 @@ class Bistro extends Controller {
 
     shake(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/24')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bistro/shake', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -78,14 +78,14 @@ class Bistro extends Controller {
 
     steaks(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/17')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bistro/steaks', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)
@@ -95,14 +95,14 @@ class Bistro extends Controller {
 
     kuche(){
         return new Promise((resolve, reject) => {
-            this.setProgress(0);
+            this.progress(0);
             this.get('/categories/19')
                 .then((categories) => {
-                    this.setProgress(45);
+                    this.progress(45);
                     return this.render('bistro/kuche', categories[0]);
                 })
                 .then(() => {
-                    this.setProgress(90);
+                    this.progress(90);
                     return this.end();
                 })
                 .then(resolve)

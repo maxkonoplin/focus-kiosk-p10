@@ -7,22 +7,16 @@ class Terminal extends Controller {
             let hotel = null;
             let gallery = null;
 
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2'
-            })
+            this.progress(0);
+            this.get('/hotel/2')
                 .then((response) => {
                     hotel = response;
-                    this._app.page.loading(30);
-                    return this._app.api.request({
-                        method: 'GET',
-                        route: '/hotel/2/gallery'
-                    });
+                    this.progress(30);
+                    return this.get('/hotel/2/gallery');
                 })
                 .then((response) => {
                     gallery = response;
-                    this._app.page.loading(60);
+                    this.progress(60);
                     return this.render('lock', {
                         hotel: hotel,
                         gallery: gallery
@@ -30,12 +24,11 @@ class Terminal extends Controller {
                 })
                 .then(() => {
                     let gallery = $('.background-slide.owl-carousel');
-                    this._app.page.loading(90);
+                    this.progress(90);
                     gallery.on('initialized.owl.carousel', () => {
-                        setTimeout(() => {
-                            this._app.page.loaded();
-                            return resolve();
-                        }, 500);
+                        this.end()
+                            .then(resolve)
+                            .catch(reject);
                     })
                         .owlCarousel({
                             items: 1,
@@ -56,22 +49,13 @@ class Terminal extends Controller {
 
     home(){
         return new Promise((resolve, reject) => {
-            this._app.page.loading(0);
-            this._app.api.request({
-                method: 'GET',
-                route: '/hotel/2'
-            })
-                .then((response) => {
-                    this._app.page.loading(45);
-                    return this.render('home', response);
-                })
+            this.progress(0);
+            this.render('home')
                 .then(() => {
-                    this._app.page.loading(90);
-                    setTimeout(() => {
-                        this._app.page.loaded();
-                        return resolve();
-                    }, 500);
+                    this.progress(90);
+                    return this.end();
                 })
+                .then(resolve)
                 .catch(reject);
         });
     }

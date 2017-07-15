@@ -1,23 +1,14 @@
 const url = require('url');
 const path = require('path');
-const config = require('../../config/api.json');
 
 class API {
 
     constructor(app){
         this._app = app;
-        this.base = config.base;
-        this.locale = config.locale;
+        this.base = 'http://api.alpenpad.com/v2';
         this.headers = new Headers({
-            'Accept': 'application/json',
-            'Content-Language': this.locale
+            'Accept': 'application/json'
         });
-    }
-
-    setLocale(locale){
-        this.locale = locale;
-        this.headers.set('Content-Language', this.locale);
-        return this;
     }
 
     request(options){

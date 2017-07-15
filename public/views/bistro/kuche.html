@@ -1,11 +1,11 @@
 <div class="page-template">
     <div class="fixed-header">
-        <div class="page-title">Tiroler Küche</div>
+        <div class="page-title">{{langpack.kuche}}</div>
     </div>
     <div class="header-space"></div>
 
     <div class="hotel-menu-items">
-        {{#items}}
+        {{#data.items}}
         <div class="hotel-menu-item" style="background-image: url('{{image}}');">
             <div class="menu-detail-text">
                 <div class="menu-price">{{price}}{{currency}}</div>
@@ -14,13 +14,11 @@
                 <div class="menu-detail-content">{{{description}}}</div>
             </div>
         </div>
-        {{/items}}
+        {{/data.items}}
         <div class="clear"></div>
     </div>
 
-    <div class="fixed-bottom-contact">
-        Täglich ab 7.00Uhr geöffnet・Kufstein ・Altstadt Römerhofgasse 4・www.traumerei brof
-    </div>
+    <div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 
 </div>
 
@@ -28,15 +26,15 @@
 
 <div class="right-menu menu-no-icons">
     <a href="bistro/gallery" class="menu-item">
-        <span>Bistro + Terrasse</span>
+        <span>{{langpack.bistro}}</span>
     </a>
     <a href="bistro/shake" class="menu-item">
-        <span>Freak Shake</span>
+        <span>{{langpack.shake}}</span>
     </a>
     <a href="bistro/steaks" class="menu-item">
-        <span>Steaks</span>
+        <span>{{langpack.steaks}}</span>
     </a>
     <a class="menu-item active-menu">
-        <span>Tiroler Küche</span>
+        <span>{{langpack.kuche}}</span>
     </a>
 </div>

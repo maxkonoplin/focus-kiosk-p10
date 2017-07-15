@@ -782,9 +782,9 @@ button.ui-keyboard-button.btn {
     font-weight: bold;
 }
 .weekly-menu .fixed-header .page-title img{
-    margin-left: 40px;
-    position: relative;
-    bottom: -10px;
+    display: inline-block;
+    width: 100px;
+    vertical-align: middle;
 }
 .weekly-menu-item{
     padding: 20px 120px 24px 0;

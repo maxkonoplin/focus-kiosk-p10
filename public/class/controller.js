@@ -4,7 +4,7 @@ class Controller {
         this._app = app;
     }
 
-    setProgress(progress){
+    progress(progress){
         this._app.page.loading(progress);
     }
 
@@ -30,7 +30,14 @@ class Controller {
     }
 
     render(template, data){
-        return this._app.page.render(template, data);
+        return new Promise((resolve, reject) => {
+            this._app.localization.langpack()
+                .then((langpack) => {
+                    return this._app.page.render(template, {langpack, data});
+                })
+                .then(resolve)
+                .catch(reject);
+        });
     }
 
 }
