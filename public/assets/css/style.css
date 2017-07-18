@@ -1101,6 +1101,7 @@ button.ui-keyboard-button.btn {
     font-size: 38px;
     color: #92107d;
     font-family: "Montserrat SemiBold", sans-serif;
+    line-height: 36px;
 }
 .menu-detail-content{
     font-size: 20px;
@@ -1466,4 +1467,55 @@ button.ui-keyboard-button.btn {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.54);
     padding-bottom: 30px;
+}
+
+/*Max styles*/
+
+.menu-detail-title {
+    font-size: 36px;
+    padding-right: 0;
+    margin-right: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hotel-menu-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    min-height: 386px;
+}
+
+.hotel-menu-item:nth-child(2n) {
+    justify-content: flex-end;
+}
+
+.hotel-menu-item:nth-child(2n) .menu-detail-text {
+    right: -285px;
+}
+
+.menu-detail-text {
+    position: relative;
+    width: 400px;
+    left: -285px;
+    top: auto;
+    bottom: auto;
+    max-height: inherit;
+    margin: 30px auto;
+}
+
+.hotel-menu-items--min .menu-detail-content {
+    display: none;
+}
+
+/* wifi*/
+.ui-widget.ui-widget-content{
+    width: 500px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+.ui-widget-overlay {
+    background: #000;
+    opacity: .7;
 }
