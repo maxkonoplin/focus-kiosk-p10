@@ -1,6 +1,6 @@
 const App = require('./core/app');
 
-var app = new App();
+let app = new App();
 app.openWindow('file://' + __dirname + '/public/index.html', function(err, window){
     if(err) throw err;
 

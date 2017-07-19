@@ -4,11 +4,19 @@ class Hotel extends Controller {
 
     rooms(){
         return new Promise((resolve, reject) => {
+            let data = {};
+
             this.progress(0);
             this.get('/album/4')
                 .then((album) => {
-                    this.progress(45);
-                    return this.render('hotel/rooms', {album});
+                    data.album = album;
+                    this.progress(30);
+                    return this.get('/hotelpage/2')
+                })
+                .then((hotelpage) => {
+                    data.page = hotelpage[0];
+                    this.progress(60);
+                    return this.render('hotel/rooms', data);
                 })
                 .then(() => {
                     let gallery = $("#sync1");
@@ -55,11 +63,19 @@ class Hotel extends Controller {
 
     fruhstuck(){
         return new Promise((resolve, reject) => {
+            let data = {};
+
             this.progress(0);
             this.get('/album/5')
                 .then((album) => {
-                    this.progress(45);
-                    return this.render('hotel/fruhstuck', {album});
+                    data.album = album;
+                    this.progress(30);
+                    return this.get('/hotelpage/3')
+                })
+                .then((hotelpage) => {
+                    data.page = hotelpage[0];
+                    this.progress(60);
+                    return this.render('hotel/fruhstuck', data);
                 })
                 .then(() => {
                     let gallery = $("#sync1");
@@ -109,7 +125,6 @@ class Hotel extends Controller {
             this.progress(0);
             this.get('/hotel/2/offers')
                 .then((offers) => {
-                    console.log(offers);
                     this.progress(45);
                     return this.render('hotel/offers', {offers});
                 })
@@ -141,11 +156,29 @@ class Hotel extends Controller {
 
     vip(){
         return new Promise((resolve, reject) => {
+            let items = [];
+
             this.progress(0);
-            this.get('/page/11')
+            this.get('/page/16')
                 .then((page) => {
-                    this.progress(50);
-                    return this.render('hotel/4vip', {page});
+                    this.progress(20);
+                    items.push(page);
+                    return this.get('/page/17');
+                })
+                .then((page) => {
+                    this.progress(40);
+                    items.push(page);
+                    return this.get('/page/18');
+                })
+                .then((page) => {
+                    this.progress(60);
+                    items.push(page);
+                    return this.get('/page/19');
+                })
+                .then((page) => {
+                    this.progress(80);
+                    items.push(page);
+                    return this.render('hotel/4vip', {items});
                 })
                 .then(() => {
                     this.progress(90);
