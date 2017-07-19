@@ -1,26 +1,24 @@
 <div class="page-template">
-    <div class="page-title">{{langpack.offers}}</div>
-    <div class="offers-block">
+    <div class="fixed-header">
+        <div class="page-title">{{langpack.offers}}</div>
+    </div>
+    <div class="header-space"></div>
 
+    <div class="hotel-menu-items">
         {{#data.offers}}
-        <div class="list-item">
-            <div class="image-list" style="background-image: url('assets/images/backend-images/image_8.png');">
-                <div class="corner"></div>
+        <div class="hotel-menu-item" style="background-image: url('{{gallery.0.image}}');">
+            <div class="menu-detail-text">
+                <div class="menu-detail-title">{{title}}</div>
+                <div class="menu-details-sub-title">{{subtitle}}</div>
+                <div class="menu-detail-content">{{{description}}}</div>
             </div>
-            <div class="list-description-block">
-                <div class="list-title">Sed do eiusmod</div>
-                <div class="list-description">
-                    Agosto ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam.
-                    <a href="../offer-details.html">read more</a>
-                </div>
-            </div>
-            <div class="clear"></div>
         </div>
         {{/data.offers}}
         <div class="clear"></div>
     </div>
+
     <div class="fixed-bottom-contact">{{langpack.contacts}}</div>
+
 </div>
 
 <a href="main/home" class="go-back-button"><img src="assets/images/ico-arrow-back.png" alt="Home"/></a>

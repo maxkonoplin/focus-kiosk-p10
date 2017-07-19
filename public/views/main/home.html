@@ -86,10 +86,25 @@
 <div class="fixed-bottom-contact">{{langpack.contacts}}</div>
 
 <div class="right-menu menu-no-icons language-menu">
-    <a href="restaurant/kuche" class="menu-item">
+    {{#data.isDE}}
+    <a class="menu-item active-menu">
         <img src="assets/images/de.png" alt="Deutsch"/>
     </a>
+    {{/data.isDE}}
+    {{^data.isDE}}
+    <a href="settings/locale" data-locale="de" class="menu-item">
+        <img src="assets/images/de.png" alt="Deutsch"/>
+    </a>
+    {{/data.isDE}}
+
+    {{#data.isEN}}
     <a class="menu-item active-menu">
         <img src="assets/images/en.png" alt="English"/>
     </a>
+    {{/data.isEN}}
+    {{^data.isEN}}
+    <a href="settings/locale" data-locale="en" class="menu-item">
+        <img src="assets/images/en.png" alt="English"/>
+    </a>
+    {{/data.isEN}}
 </div>

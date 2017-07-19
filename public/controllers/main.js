@@ -37,8 +37,12 @@ class Main extends Controller {
 
     home(){
         return new Promise((resolve, reject) => {
+            let locale = this._app.localization._locale;
             this.progress(0);
-            this.render('main/home')
+            this.render('main/home', {
+                isDE: locale === 'de',
+                isEN: locale === 'en'
+            })
                 .then(() => {
                     this.progress(90);
                     return this.end();

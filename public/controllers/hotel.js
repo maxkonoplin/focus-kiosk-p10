@@ -122,11 +122,19 @@ class Hotel extends Controller {
 
     offers(){
         return new Promise((resolve, reject) => {
+            let data = [];
+
             this.progress(0);
-            this.get('/hotel/2/offers')
+            this.get('/place/1/offers')
                 .then((offers) => {
-                    this.progress(45);
-                    return this.render('hotel/offers', {offers});
+                    data = data.concat(offers);
+                    this.progress(30);
+                    return this.get('/place/2/offers');
+                })
+                .then((offers) => {
+                    data = data.concat(offers);
+                    this.progress(60);
+                    return this.render('hotel/offers', {offers: data});
                 })
                 .then(() => {
                     this.progress(90);
