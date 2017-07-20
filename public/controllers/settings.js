@@ -28,12 +28,43 @@ class Settings extends Controller {
                 this._app.network.scan()
                     .then((networks) => {
 
-                        let view = new View('popup/wifi', {networks});
-                        let list = $(view.toString());
+                        let context = this;
+                        let list = $(new View('popup/wifi', {networks}).toString());
                         loader.dialog('close');
                         list.dialog({
                             title: 'Wi-Fi networks',
                             modal: true
+                        });
+                        list.on('click', '.wifi-item', function(e){
+                            e.preventDefault();
+
+                            let network = networks[$(this).index()];
+                            let password = $(new View('popup/prompt').toString());
+                            let input = password.find('input');
+                            input.keyboard();
+                            list.dialog('close');
+                            password.dialog({
+                                title: `Enter password for network ${network.ssid}`,
+                                modal: true,
+                                width: '600px'
+                            });
+
+                            password.on('submit', (e) => {
+                                e.preventDefault();
+
+                                let value = input.val();
+                                if(value.length < 8) return false;
+                                password.dialog('close');
+                                loader.dialog('open');
+                                context._app.network.connect({
+                                    ssid: network.ssid,
+                                    password: value
+                                }, (err) => {
+                                    loader.dialog('close');
+                                    if(err) password.dialog('open');
+                                });
+
+                            })
                         });
                     })
                     .catch((err) => {
@@ -60,13 +91,8 @@ class Settings extends Controller {
                 });
 
                 this._app.network.connect(data)
-                    .then(() => {
-                        loader.dialog('close');
-                    })
-                    .catch((err) => {
-                        $('.ui-dialog-content').dialog('close');
-                        return reject(err);
-                    });
+                    .then(resolve)
+                    .catch(reject);
             }
             catch(err){
                 $('.ui-dialog-content').dialog('close');

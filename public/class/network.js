@@ -41,6 +41,21 @@ class Network {
         });
     }
 
+    connect(options){
+        return new Promise((resolve, reject) => {
+            try {
+                options = Object.assign({}, options);
+                this._wifi.connect(options, (err) => {
+                    if(err) return reject(err);
+                    return resolve();
+                });
+            }
+            catch(err){
+                return reject(err);
+            }
+        });
+    }
+
 }
 
 module.exports = Network;

@@ -20,4 +20,14 @@ $(document).ready(function(){
         app.router.dispatch('main/lock');
     });
 
+    $.keyboard.keyaction.enter = function(base){
+        if(base.el.tagName === "INPUT"){
+            base.accept();
+            $(base.el).parents('form').submit();
+        }
+        else {
+            base.insertText('\r\n');
+        }
+    };
+
 });
