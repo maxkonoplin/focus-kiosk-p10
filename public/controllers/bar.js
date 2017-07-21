@@ -123,12 +123,28 @@ class Bar extends Controller {
 
     tagesem(){
         return new Promise((resolve, reject) => {
+            let gallery = null;
+
             this.progress(0);
-            this.get('/hotel/2')
-                .then(() => {
-                    console.log();
-                    this.progress(45);
-                    return this.render('bar/tagesem');
+            this.get('/album/3')
+                .then((album) => {
+                    gallery = album;
+                    this.progress(30);
+                    return this.get('/categories/27');
+                })
+                .then((categories) => {
+                    let category = categories[0];
+
+                    let items = category.items.slice(0, 3);
+                    for(let i=0, l=3-items.length; i<l; i++){
+                        items.push({image: gallery[i].image});
+                    }
+
+                    this.progress(60);
+                    return this.render('bar/tagesem', {
+                        items,
+                        content: category.description
+                    });
                 })
                 .then(() => {
                     this.progress(90);

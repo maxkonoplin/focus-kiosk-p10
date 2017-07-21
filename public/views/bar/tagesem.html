@@ -1,21 +1,12 @@
 <div class="page-template cocktail-template">
 
     <div class="cocktail-blocks">
-        <div class="cocktails-block-1" style="background-image: url('assets/images/background.png');"></div>
-        <div class="cocktails-block-2" style="background-image: url('assets/images/background.png');"></div>
-        <div class="cocktails-block-3" style="background-image: url('assets/images/background.png');"></div>
+        <div class="cocktails-block-1" style="background-image: url('{{data.items.0.image}}');"></div>
+        <div class="cocktails-block-2" style="background-image: url('{{data.items.1.image}}');"></div>
+        <div class="cocktails-block-3" style="background-image: url('{{data.items.2.image}}');"></div>
 
         <div class="day-cocktail">
-            <p>Gin Braltar(Citrus) mit Mandarinen
-                und Limetten geschmack.
-            </p>
-            <p>
-                Royal Bliss "Yuzu Sensation" Tonic
-                Wasser.
-            </p>
-            <p>
-                Gin!Gin!!
-            </p>
+            {{{data.content}}}
             <div class="clear"></div>
         </div>
 
