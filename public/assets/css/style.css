@@ -1372,6 +1372,7 @@ button.ui-keyboard-button.btn {
 .bar-items hr{
     margin: 0 auto 50px auto;
     width: 80%;
+    background-color: rgb(100, 100, 100);
 }
 .bar-items hr:nth-child(4n+2){
     display: none;
@@ -1383,6 +1384,9 @@ button.ui-keyboard-button.btn {
     text-align: left;
     margin-bottom: 40px;
     vertical-align: top;
+}
+.bar-item:nth-child(4n+1){
+    margin-right: 7%;
 }
 .bar-item-title{
     font-size: 32px;
