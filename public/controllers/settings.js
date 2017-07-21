@@ -59,12 +59,16 @@ class Settings extends Controller {
                                 context._app.network.connect({
                                     ssid: network.ssid,
                                     password: value
-                                }, (err) => {
-                                    loader.dialog('close');
-                                    if(err) password.dialog('open');
-                                });
+                                })
+                                    .then(() => {
+                                        loader.dialog('close');
+                                    })
+                                    .catch((err) => {
+                                        loader.dialog('close');
+                                        if(err) password.dialog('open');
+                                    });
 
-                            })
+                            });
                         });
                     })
                     .catch((err) => {

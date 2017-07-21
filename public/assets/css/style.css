@@ -1244,12 +1244,15 @@ button.ui-keyboard-button.btn {
     right: 0;
     margin: auto;
     padding: 20px 80px;
-    background-color: #f8f8f8;
+    background-color: rgb(240, 240, 240);
     font-size: 20px;
     line-height: 1.2;
     text-align: center;
     color: rgba(0, 0, 0, 0.38);
     z-index: 2;
+}
+.home-template .fixed-bottom-contact{
+    background: #f8f8f8;
 }
 .offer-date{
     color: rgba(0, 0, 0, 0.87);
@@ -1366,6 +1369,13 @@ button.ui-keyboard-button.btn {
 .bar-items{
     padding: 30px 0;
 }
+.bar-items hr{
+    margin: 0 auto 50px auto;
+    width: 80%;
+}
+.bar-items hr:nth-child(4n+2){
+    display: none;
+}
 .bar-item{
     display: inline-block;
     width: 46%;
@@ -1374,10 +1384,6 @@ button.ui-keyboard-button.btn {
     margin-bottom: 40px;
     vertical-align: top;
 }
-.bar-item:nth-child(2n+1){
-    margin-right: 7%;
-}
-
 .bar-item-title{
     font-size: 32px;
     line-height: 1.2;
