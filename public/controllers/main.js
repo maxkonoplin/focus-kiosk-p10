@@ -4,15 +4,28 @@ class Main extends Controller {
 
     lock(){
         return new Promise((resolve, reject) => {
+            let gallery = [];
+
             this.progress(0);
             this.get('/hotel/2/gallery')
-                .then((gallery) => {
-                    this.progress(45);
+                .then((response) => {
+                    gallery = gallery.concat(response);
+                    this.progress(20);
+                    return this.get('/album/1');
+                })
+                .then((response) => {
+                    gallery = gallery.concat(response);
+                    this.progress(40);
+                    return this.get('/album/2');
+                })
+                .then((response) => {
+                    gallery = gallery.concat(response);
+                    this.progress(60);
                     return this.render('main/lock', {gallery});
                 })
                 .then(() => {
                     let gallery = $('.background-slide.owl-carousel');
-                    this.progress(90);
+                    this.progress(80);
                     gallery.on('initialized.owl.carousel', () => {
                         this.end()
                             .then(resolve)

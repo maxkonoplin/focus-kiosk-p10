@@ -133,17 +133,19 @@ class Bar extends Controller {
                     return this.get('/categories/27');
                 })
                 .then((categories) => {
-                    let category = categories[0];
+                    let drink = categories[0].items[0];
+                    console.log(drink);
 
-                    let items = category.items.slice(0, 3);
-                    for(let i=0, l=3-items.length; i<l; i++){
-                        items.push({image: gallery[i].image});
+                    let images = drink.images.slice(0, 2);
+                    for(let i=0, l=2-images.length; i<l; i++){
+                        images.push(gallery.shift().image);
                     }
+                    images.push(gallery.shift().image);
 
                     this.progress(60);
                     return this.render('bar/tagesem', {
-                        items,
-                        content: category.description
+                        images,
+                        content: drink.description
                     });
                 })
                 .then(() => {
