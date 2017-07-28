@@ -1,6 +1,6 @@
 {
   "name": "focus-kiosk-p10",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "description": "Kiosk application for hotels",
   "main": "index.js",
   "author": "Max Konoplin",
