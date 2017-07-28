@@ -10,17 +10,49 @@ class Main extends Controller {
             this.get('/hotel/2/gallery')
                 .then((response) => {
                     gallery = gallery.concat(response);
-                    this.progress(20);
+                    this.progress(10);
                     return this.get('/album/1');
                 })
                 .then((response) => {
-                    gallery = gallery.concat(response);
-                    this.progress(40);
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*2+1, 0, response[i]);
+                    }
+                    this.progress(20);
                     return this.get('/album/2');
                 })
                 .then((response) => {
-                    gallery = gallery.concat(response);
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*3+2, 0, response[i]);
+                    }
+                    this.progress(30);
+                    return this.get('/album/3');
+                })
+                .then((response) => {
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*4+3, 0, response[i]);
+                    }
+                    this.progress(40);
+                    return this.get('/album/4');
+                })
+                .then((response) => {
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*5+4, 0, response[i]);
+                    }
+                    this.progress(50);
+                    return this.get('/album/5');
+                })
+                .then((response) => {
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*6+5, 0, response[i]);
+                    }
                     this.progress(60);
+                    return this.get('/album/6');
+                })
+                .then((response) => {
+                    for(let i=0,l=response.length;i<l;i++){
+                        gallery.splice(i*7+6, 0, response[i]);
+                    }
+                    this.progress(70);
                     return this.render('main/lock', {gallery});
                 })
                 .then(() => {

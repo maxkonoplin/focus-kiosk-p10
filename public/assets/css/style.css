@@ -1022,7 +1022,8 @@ button.ui-keyboard-button.btn {
     bottom: -96px;
 }
 .gallery-details.fullscreen-details #sync2{
-    bottom: 252px;
+    top: 210px;
+    bottom: auto;
 }
 
 .gradient-block-title{
