@@ -58,6 +58,7 @@ class API {
                     })
                     .then((data) => {
                         this._headers.set('Authorization', data.token_type + ' ' + data.access_token);
+                        setTimeout(() => this.authenticate(), Math.ceil(data.expires_in - Date.now() / 1000) * 1000);
                         return resolve();
                     })
                     .catch(reject);
