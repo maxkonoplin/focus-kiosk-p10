@@ -10,7 +10,7 @@ class Window extends events.EventEmitter {
             frame: false,
             fullscreen: true,
             resizable: false,
-            aalwaysOnTop: true,
+            alwaysOnTop: true,
             webPreferences: {
                 devTools: true,
                 webSecurity: false,
