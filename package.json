@@ -3,7 +3,7 @@
   "version": "1.2.23",
   "description": "Kiosk application for hotels",
   "main": "index.js",
-  "author": "Max Konoplin",
+  "author": "Alpentouch GmbH",
   "scripts": {
     "start": "./node_modules/.bin/electron .",
     "pack": "./node_modules/.bin/build --dir",

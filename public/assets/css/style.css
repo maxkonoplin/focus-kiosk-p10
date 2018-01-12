@@ -568,7 +568,7 @@ button.ui-keyboard-button.btn {
     font-size: 42px;
     color: #454545;
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 10px;
     text-transform: uppercase;
 }
 .room-subtitle{
@@ -1169,10 +1169,14 @@ button.ui-keyboard-button.btn {
     padding: 0 80px 10px;
 }
 .vip-block-item{
+    display: flex;
     margin-bottom: 24px;
 }
-.vip-block-item:nth-child(2n) .vip-half-block.vip-image{
-    float: right;
+.vip-block-item:last-child{
+    margin-bottom: 100px;
+}
+.vip-block-item:nth-child(2n){
+    flex-direction: row-reverse;
 }
 .vip-block-item:nth-child(4) .vip-text{
     padding-bottom: 34px;
