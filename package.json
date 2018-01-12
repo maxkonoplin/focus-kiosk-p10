@@ -1,6 +1,6 @@
 {
   "name": "focus-kiosk-p10",
-  "version": "1.2.23",
+  "version": "1.2.3",
   "description": "Kiosk application for hotels",
   "main": "index.js",
   "author": "Alpentouch GmbH",
